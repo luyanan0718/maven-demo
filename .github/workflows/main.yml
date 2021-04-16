@@ -28,7 +28,7 @@ jobs:
       - name: Build with Maven
         run: |
           mvn versions:set
-          mvn version:commit
+          mvn versions:commit
           mvn deploy
           mvn scm:tag
 
