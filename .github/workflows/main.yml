@@ -34,7 +34,7 @@ jobs:
           mvn versions:set
           mvn versions:commit
           mvn deploy
-          mvn scm:tag
+          mvn scm:tag -Dpassword=${{secrets.SONATYPE_PASSWORD }}"}]
       - name: commit
         run: |
           git add .
