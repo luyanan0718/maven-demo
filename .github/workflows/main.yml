@@ -25,4 +25,7 @@ jobs:
     - name: Build with Maven
       run:
         mvn versions:set
+    - name: Build with git
+      run:
+        git add . &&  git  commit -m "update version" && git push
 
