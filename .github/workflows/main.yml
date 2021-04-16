@@ -25,7 +25,15 @@ jobs:
     - name: Build with Maven
       run:
         mvn versions:set
-    - name: Build with git
-      run:
-        git add . &&  git  commit -m "update version" && git push
+    - name: commit
+      run: |
+        git config --global user.email luyanan0718@163.com
+        git config --global user.name luyanan
+        git add .
+        git commit -m "update version" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
 
