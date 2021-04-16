@@ -25,6 +25,7 @@ jobs:
     - name: Build with Maven
       run:
         mvn versions:set
+        mvn deploy
     - name: commit
       run: |
         git config --global user.email luyanan0718@163.com
