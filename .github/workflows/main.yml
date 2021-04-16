@@ -46,7 +46,7 @@ jobs:
           mvn deploy
       - name: maven  add tag
         run: |
-          mvn scm:tag -Dpassword=${{secrets.SONATYPE_PASSWORD}}"}]
+          mvn scm:tag
       - name: git commit
         run: |
           git add .
