@@ -27,4 +27,12 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>
+                https://github.com/luyanan0718/maven-demo
+            </url>
+        </repository>
+    </distributionManagement>
 </project>

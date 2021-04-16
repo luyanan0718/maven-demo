@@ -14,7 +14,6 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -22,8 +21,12 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name:  set maven setting
+      uses: s4u/maven-settings-action@v2.4.0
+      with:
+        servers: '[{"id": "github", "username": "luyanan0718", "password": "${{secrets.SONATYPE_PASSWORD }}"}]'
     - name: Build with Maven
-      run:
+      run: |
         mvn versions:set
         mvn deploy
     - name: commit
