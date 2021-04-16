@@ -29,12 +29,16 @@ jobs:
         run: |
           git config --global user.email luyanan0718@163.com
           git config --global user.name luyanan
-      - name: maven update version and tag
+      - name: maven update version
         run: |
           mvn versions:set
           mvn versions:commit
+      - name: maven deploy
+        run: |
           mvn deploy
-          mvn scm:tag -Dpassword=${{secrets.SONATYPE_PASSWORD }}"}]
+      - name: maven  add tag
+        run: |
+          mvn scm:tag -Dpassword=${{secrets.SONATYPE_PASSWORD}}"}]
       - name: git commit
         run: |
           git add .
