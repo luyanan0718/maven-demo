@@ -21,21 +21,21 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: set maven setting
+      - name: set maven environment
         uses: s4u/maven-settings-action@v2.4.0
         with:
           servers: '[{"id": "github", "username": "luyanan0718", "password": "${{secrets.SONATYPE_PASSWORD }}"}]'
-      - name: setting git
+      - name: set git environment
         run: |
           git config --global user.email luyanan0718@163.com
           git config --global user.name luyanan
-      - name: Build with Maven
+      - name: maven update version and tag
         run: |
           mvn versions:set
           mvn versions:commit
           mvn deploy
           mvn scm:tag -Dpassword=${{secrets.SONATYPE_PASSWORD }}"}]
-      - name: commit
+      - name: git commit
         run: |
           git add .
           git commit -m "update version" -a
