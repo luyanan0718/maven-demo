@@ -25,6 +25,14 @@ jobs:
         uses: s4u/maven-settings-action@v2.4.0
         with:
           servers: '[{"id": "github", "username": "luyanan0718", "password": "${{secrets.SONATYPE_PASSWORD }}"}]'
+      - name: Setup SSH Private Key
+        env:
+          token_Private_Keys: ${{ secrets.token_Private_Keys }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$token_Private_Keys" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
       - name: set git environment
         run: |
           git config --global user.email luyanan0718@163.com
