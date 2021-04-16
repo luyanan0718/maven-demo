@@ -38,6 +38,7 @@
                 <configuration>
                     <connectionType>developerConnection</connectionType>
                     <tag>${project.version}</tag>
+                    <username>luyanan0718</username>
                 </configuration>
             </plugin>
 
