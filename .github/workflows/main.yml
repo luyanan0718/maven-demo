@@ -25,17 +25,18 @@ jobs:
         uses: s4u/maven-settings-action@v2.4.0
         with:
           servers: '[{"id": "github", "username": "luyanan0718", "password": "${{secrets.SONATYPE_PASSWORD }}"}]'
+      - name: setting git
+        run: |
+          git config --global user.email luyanan0718@163.com
+          git config --global user.name luyanan
       - name: Build with Maven
         run: |
           mvn versions:set
           mvn versions:commit
           mvn deploy
           mvn scm:tag
-
       - name: commit
         run: |
-          git config --global user.email luyanan0718@163.com
-          git config --global user.name luyanan
           git add .
           git commit -m "update version" -a
       - name: Push changes
