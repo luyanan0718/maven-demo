@@ -16,7 +16,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <newVersion>1.6</newVersion>
+        <newVersion>1.6.1</newVersion>
     </properties>
 
     <build>
